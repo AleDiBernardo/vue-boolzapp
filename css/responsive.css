@@ -1,0 +1,101 @@
+/* MOBILE FIRST */
+@media screen and (min-width:768px) {
+
+    :root {
+        --nav-sec-width: 75px;
+    }
+
+    /* MAIN SECTION */
+    main {
+        display: flex;
+    }
+
+    /* NAV SECTION */
+    .nav-section {
+        display: flex;
+        width: var(--nav-sec-width);
+        height: 100%;
+
+    }
+
+    /* CHAT SECTION */
+    .chat-section {
+        width: calc(100% - var(--nav-sec-width));
+    }
+
+    /* Header Chat */
+    .chat-section .icons {
+        display: flex;
+        width: 20%;
+    }
+
+    /* Footer Chat */
+    .ftr-chat .emoji,
+    .ftr-chat .audio {
+        display: flex;
+        font-size: 30px;
+        width: 15%;
+    }
+
+    .ftr-chat .textbox {
+        width: 70%;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+
+    :root {
+        --nav-sec-width: 350px;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to bottom, var(--green-color), var(--green-color) 20%, #D5DBD9 50px, #D5DBD9);
+
+    }
+
+    /* MAIN SECTION */
+    main {
+        width: 80%;
+        height: 95%;
+    }
+
+    /* NAV SECTION */
+    .nav-section {
+        width: var(--nav-sec-width);
+        height: 100%;
+
+    }
+
+    .nav-section .icons {
+        display: flex;
+    }
+
+    /* CHAT SECTION */
+    .chat-section {
+        width: calc(100% - var(--nav-sec-width));
+    }
+
+    /* NOTIFICATION */
+    .notification {
+        display: flex;
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+        display: flex;
+    }
+
+    /* CONTACT INFO */
+    .contact-info {
+        display: flex;
+    }
+
+    .user .hour {
+        display: block;
+    }
+
+}

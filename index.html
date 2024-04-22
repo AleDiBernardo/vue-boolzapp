@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Boolzapp</title>
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Responsive Css -->
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <!-- MAIN -->
+    <main id="app">
+      <!-- NAV SECTION -->
+      <section class="nav-section col-dir">
+        <header class="flex header just-cont-center">
+          <div class="flex container-95 align-center just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_io.jpg" alt="" />
+            </div>
+            <div class="icons just-cont-end align-center">
+              <ul class="flex just-cont-center align-center">
+                <li>
+                  <button>
+                    <i class="fa-solid fa-circle-notch"></i>
+                  </button>
+                </li>
+                <li>
+                  <button>
+                    <i class="fa-solid fa-message"></i>
+                  </button>
+                </li>
+                <li>
+                  <button>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        <div class="notification align-center">
+          <div class="flex container-95">
+            <div class="flex bell align-center just-cont-center">
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+            <div class="flex text col-dir just-cont-center">
+              <span class="tip">Ricevi notifiche dei nuovi messaggi</span>
+              <a class="activate" href="#">Attiva notifiche desktop</a>
+            </div>
+          </div>
+        </div>
+        <div class="search-bar">
+          <form class="flex align-center just-cont-center" action="">
+            <button>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <input
+              aria-label="search"
+              type="search"
+              name=""
+              id="search"
+              placeholder="Cerca o inizia una nuova chat"
+              autocomplete="off"
+            />
+          </form>
+        </div>
+
+        <div class="flex contacts-ctn col-dir align-center">
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_1.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>FRATM</span>
+              <span class="last-msg">Va a vre a fiat pand</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_2.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Gianni Sono</span>
+              <span class="last-msg">Mi si è rotto il Giannocchio</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_3.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Fabio</span>
+              <span class="last-msg">Sei una fabola</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_4.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Sam Il Pompiere</span>
+              <span class="last-msg">Sei on FIRE</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_5.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Luca Tutor</span>
+              <span class="last-msg"
+                >Ciao Luca, tutto bene? Ti piace Boolzapp?</span
+              >
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_6.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Gerry Scotti</span>
+              <span class="last-msg"
+                >La vuoi la mia pepe, la vuoi la mia pepe, la vuoi la mia
+                peperonata!?</span
+              >
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_7.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Goku</span>
+              <span class="last-msg">R.I.P Akira Toriyama</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_8.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Captain Quirk</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_1.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Fluffy McFlufferson </span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_2.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Elon Musk</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_3.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Jeff Bezos</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_4.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Loris Tutor (psicologo)</span>
+              <span class="last-msg"
+                >Loris grazie di tutti i tuoi discorsi motivazionali !!!</span
+              >
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_5.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Peppa Pig</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_6.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Giorgia Meloni</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_7.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Ciccio Pio Di Santo</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_8.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Harry Styles</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_1.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Vegeta</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_2.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Iron Man</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+          <div class="flex user just-cont-center">
+            <div class="profile-pic">
+              <img src="img/avatar_3.jpg" alt="" />
+            </div>
+            <div class="contact-info just-cont-center col-dir">
+              <span>Brother</span>
+              <span class="last-msg">Lorem ipsum dolor sit amet</span>
+            </div>
+            <span class="hour">13:50</span>
+          </div>
+        </div>
+      </section>
+      <!-- /NAV SECTION -->
+
+      <!-- CHAT SECTION -->
+      <section class="chat-section">
+        <!-- HEADER CHAT -->
+        <header class="flex header align-center just-cont-center">
+          <div class="flex container-95">
+            <div class="flex profile-pic just-cont-center">
+              <img src="img/avatar_1.jpg" alt="" />
+            </div>
+            <div class="flex chat-info just-cont-center col-dir">
+              <span>FRATM</span>
+              <span class="last-access">Ultimo accesso oggi alle 16:26</span>
+            </div>
+            <div class="icons just-cont-center align-center">
+              <ul class="flex just-cont-center align-center">
+                <li>
+                  <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </li>
+                <li>
+                  <button>
+                    <i class="fa-solid fa-paperclip"></i>
+                  </button>
+                </li>
+                <li>
+                  <button>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+        <!-- /HEADER CHAT -->
+
+        <!-- BODY CHAT -->
+        <div class="flex body-chat just-cont-center">
+          <div class="container">
+            <div class="flex received-message">
+              <div class="flex message">
+                <div class="text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
+                  atque excepturi Lorem ipsum, dolor sit amet consectetur
+                  adipisicing elit. Maxime soluta, hic iste nam molestias
+                  aliquid expedita fuga atque excepturi
+                </div>
+                <div class="flex select align-center just-cont-sbtw">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <span class="hour">13:53</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex sent-message">
+              <div class="flex message">
+                <div class="text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
+                  atque excepturi
+                </div>
+                <div class="flex select align-center just-cont-sbtw">
+                  <div class="dropdown">
+                    <button class="dropbtn">
+                      <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                    <span class="dropdown-content">
+                      <ul>
+                        <li>
+                          <button>Info Messaggio</button>
+                        </li>
+                        <li>
+                          <button>Cancella Messaggio</button>
+                        </li>
+                      </ul>
+                    </span>
+                  </div>
+
+                  <span class="hour">13:53</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex sent-message">
+              <div class="flex message">
+                <div class="text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
+                  atque excepturi Lorem ipsum, dolor sit amet consectetur
+                  adipisicing elit. Maxime soluta, hic iste nam molestias
+                  aliquid expedita fuga atque excepturi Lorem ipsum, dolor sit
+                  amet consectetur adipisicing elit. Maxime soluta, hic iste nam
+                  molestias aliquid expedita fuga atque excepturi
+                </div>
+                <div class="flex select align-center just-cont-sbtw">
+                  <div class="dropdown">
+                    <button class="dropbtn">
+                      <i class="fa-solid fa-chevron-down chevron"></i>
+                    </button>
+                    <span class="dropdown-content">
+                      <ul>
+                        <li>
+                          <button>Info Messaggio</button>
+                        </li>
+                        <li>
+                          <button>Cancella Messaggio</button>
+                        </li>
+                      </ul>
+                    </span>
+                  </div>
+                  <span class="hour">13:53</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex received-message">
+              <div class="flex message">
+                <div class="text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
+                  atque excepturi Lorem ipsum, dolor sit amet consectetur
+                  adipisicing elit. Maxime soluta, hic iste nam molestias
+                  aliquid expedita fuga atque excepturi
+                </div>
+                <div class="flex select align-center just-cont-sbtw">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <span class="hour">13:53</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex received-message">
+              <div class="flex message">
+                <div class="text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
+                  atque excepturi
+                </div>
+                <div class="flex select align-center just-cont-sbtw">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <span class="hour">13:53</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex received-message">
+              <div class="flex message">
+                <div class="text">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
+                  atque excepturi
+                </div>
+                <div class="flex select align-center just-cont-sbtw">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <span class="hour">13:53</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex received-message">
+              <div class="flex message">
+                <div class="text">Va a vre a fiat panda</div>
+                <div class="flex select align-center just-cont-sbtw">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <span class="hour">13:53</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /BODY CHAT -->
+
+        <!-- FOOTER CHAT -->
+        <footer class="flex ftr-chat align-center just-cont-center">
+          <div class="flex container-95">
+            <div class="emoji align-center just-cont-center">
+              <button>
+                <i class="fa-regular fa-face-smile"></i>
+              </button>
+            </div>
+            <div class="flex textbox just-cont-center align-center">
+              <form action="">
+                <input
+                  aria-label="textbox"
+                  type="text"
+                  name=""
+                  id="textbox"
+                  placeholder="Scrivi un messaggio"
+                  autocomplete="off"
+                />
+              </form>
+            </div>
+            <div class="audio just-cont-center align-center">
+              <button>
+                <i class="fa-solid fa-microphone"></i>
+              </button>
+            </div>
+          </div>
+        </footer>
+        <!-- /FOOTER CHAT -->
+      </section>
+      <!-- /CHAT SECTION -->
+    </main>
+    <!-- /MAIN -->
+
+    <!-- App JS -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
