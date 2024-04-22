@@ -4,6 +4,7 @@ Vue.createApp({
       activeChatIndex: 0,
       searchedWord: "",
       newMessage: "",
+      
       contacts: [
         {
           name: "Michele",
@@ -172,58 +173,44 @@ Vue.createApp({
   methods: {
     sendMessage() {
       console.log("inviato");
+      let curHour = luxon.DateTime.now().setZone("Europe/Rome")
+      let formattedHour = curHour.toFormat("HH:mm");
 
       if (this.newMessage !== "") {
         this.contacts[this.activeChatIndex].messages.push({
-            date: "10/01/2020 15:51:00",
-            message: this.newMessage.trim(),
-            status: "sent",
+          date: formattedHour,
+          message: this.newMessage.trim(),
+          status: "sent",
+        });
+
+        setTimeout(() => {
+            curHour = luxon.DateTime.now().setZone("Europe/Rome");
+            formattedHour = curHour.toFormat("HH:mm");
+          this.contacts[this.activeChatIndex].messages.push({
+            date: formattedHour,
+            message: "okay brother",
+            status: "received",
           });
-    
-          setTimeout(() => {
-            this.contacts[this.activeChatIndex].messages.push({
-              date: "10/01/2020 15:51:00",
-              message: "okay brother",
-              status: "received",
-            });
-          }, 1000);
+        }, 60000);
       }
-      
+
       this.newMessage = "";
     },
-    // handleSearch(){
-    //     if (this.searchedWord !== "") {
-    //         this.contacts.forEach(curContact => {
-    //             // console.log(curContact);
-    //             if (curContact.name.includes(this.searchedWord.toLowerCase())) {
-    //                 curContact.visible = true
-
-    //             } else {
-    //                 curContact.visible = false
-    //             }
-    //         });
-    //     } else {
-    //         this.contacts.forEach(curContact => {
-    //             // console.log(curContact);
-    //             curContact.visible = true
-    //         });
-    //     }
-    // }
     handleSearch() {
-        if (this.searchedWord !== "") {
-          this.contacts.forEach(curContact => {
-            const name = curContact.name.toLowerCase();
-            if (name.includes(this.searchedWord.toLowerCase())) {
-              curContact.visible = true;
-            } else {
-              curContact.visible = false;
-            }
-          });
-        } else {
-          this.contacts.forEach(curContact => {
+      if (this.searchedWord !== "") {
+        this.contacts.forEach((curContact) => {
+          const name = curContact.name.toLowerCase();
+          if (name.includes(this.searchedWord.toLowerCase())) {
             curContact.visible = true;
-          });
-        }
+          } else {
+            curContact.visible = false;
+          }
+        });
+      } else {
+        this.contacts.forEach((curContact) => {
+          curContact.visible = true;
+        });
       }
+    },
   },
 }).mount("#app");
