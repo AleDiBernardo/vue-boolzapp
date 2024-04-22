@@ -171,14 +171,23 @@ Vue.createApp({
   methods: {
     sendMessage() {
       console.log("inviato");
+
+      if (this.newMessage !== "") {
+        this.contacts[this.activeChatIndex].messages.push({
+            date: "10/01/2020 15:51:00",
+            message: this.newMessage.trim(),
+            status: "sent",
+          });
+    
+          setTimeout(() => {
+            this.contacts[this.activeChatIndex].messages.push({
+              date: "10/01/2020 15:51:00",
+              message: "okay brother",
+              status: "received",
+            });
+          }, 1000);
+      }
       
-
-      this.contacts[this.activeChatIndex].messages.push({
-        date: "10/01/2020 15:51:00",
-        message: this.newMessage.trim(),
-        status: "sent",
-      });
-
       this.newMessage = "";
     },
   },
