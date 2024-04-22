@@ -204,7 +204,7 @@
               </button>
             </div>
             <div class="flex textbox just-cont-center align-center">
-              <form action="">
+              <form @submit.prevent="sendMessage" action="">
                 <input
                   aria-label="textbox"
                   type="text"
@@ -212,6 +212,8 @@
                   id="textbox"
                   placeholder="Scrivi un messaggio"
                   autocomplete="off"
+                  v-model="newMessage"
+                  
                 />
               </form>
             </div>
