@@ -2,7 +2,7 @@ Vue.createApp({
 
     data() {
         return{
-            
+            activeChatIndex: 0,
             contacts: [
                 {
                     name: 'Michele',

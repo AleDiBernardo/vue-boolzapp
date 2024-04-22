@@ -83,10 +83,14 @@
           </form>
         </div>
 
+        <!-- CONTACT CONTAINER -->
         <div class="flex contacts-ctn col-dir align-center">
-
           <!-- Contact -->
-          <div class="flex user just-cont-center" v-for="curContact in contacts">
+          <div
+            class="flex user just-cont-center"
+            v-for="(curContact,index) in contacts"
+            @click.stop="activeChatIndex = index"
+          >
             <div class="profile-pic">
               <img :src="'img/avatar' + curContact.avatar + '.jpg'" alt="" />
               <!-- <img :src="curContact.avatar" alt="" /> -->
@@ -98,10 +102,8 @@
             <span class="hour">{{ curContact.messages[0].date }}</span>
           </div>
           <!-- /Contact -->
-
-
-          
         </div>
+        <!-- /CONTACT CONTAINER -->
       </section>
       <!-- /NAV SECTION -->
 
@@ -111,10 +113,13 @@
         <header class="flex header align-center just-cont-center">
           <div class="flex container-95">
             <div class="flex profile-pic just-cont-center">
-              <img src="img/avatar_1.jpg" alt="" />
+              <img
+                :src="'img/avatar' + contacts[activeChatIndex].avatar + '.jpg'"
+                alt=""
+              />
             </div>
             <div class="flex chat-info just-cont-center col-dir">
-              <span>FRATM</span>
+              <span>{{contacts[activeChatIndex].name}}</span>
               <span class="last-access">Ultimo accesso oggi alle 16:26</span>
             </div>
             <div class="icons just-cont-center align-center">
@@ -143,129 +148,48 @@
         <!-- BODY CHAT -->
         <div class="flex body-chat just-cont-center">
           <div class="container">
-            <div class="flex received-message">
-              <div class="flex message">
-                <div class="text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
-                  atque excepturi Lorem ipsum, dolor sit amet consectetur
-                  adipisicing elit. Maxime soluta, hic iste nam molestias
-                  aliquid expedita fuga atque excepturi
-                </div>
-                <div class="flex select align-center just-cont-sbtw">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <span class="hour">13:53</span>
+            <div v-for="curMessage in contacts[activeChatIndex].messages ">
+              <!-- RECEIVED MESSAGE -->
+              <div
+                v-if="curMessage.status === 'received'"
+                class="flex received-message"
+              >
+                <div class="flex message">
+                  <div class="text">{{curMessage.message}}</div>
+                  <div class="flex select align-center just-cont-sbtw">
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <span class="hour">{{curMessage.date}}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="flex sent-message">
-              <div class="flex message">
-                <div class="text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
-                  atque excepturi
-                </div>
-                <div class="flex select align-center just-cont-sbtw">
-                  <div class="dropdown">
-                    <button class="dropbtn">
-                      <i class="fa-solid fa-chevron-down chevron"></i>
-                    </button>
-                    <span class="dropdown-content">
-                      <ul>
-                        <li>
-                          <button>Info Messaggio</button>
-                        </li>
-                        <li>
-                          <button>Cancella Messaggio</button>
-                        </li>
-                      </ul>
-                    </span>
-                  </div>
+              <!-- /RECEIVED MESSAGE -->
 
-                  <span class="hour">13:53</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex sent-message">
-              <div class="flex message">
-                <div class="text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
-                  atque excepturi Lorem ipsum, dolor sit amet consectetur
-                  adipisicing elit. Maxime soluta, hic iste nam molestias
-                  aliquid expedita fuga atque excepturi Lorem ipsum, dolor sit
-                  amet consectetur adipisicing elit. Maxime soluta, hic iste nam
-                  molestias aliquid expedita fuga atque excepturi
-                </div>
-                <div class="flex select align-center just-cont-sbtw">
-                  <div class="dropdown">
-                    <button class="dropbtn">
-                      <i class="fa-solid fa-chevron-down chevron"></i>
-                    </button>
-                    <span class="dropdown-content">
-                      <ul>
-                        <li>
-                          <button>Info Messaggio</button>
-                        </li>
-                        <li>
-                          <button>Cancella Messaggio</button>
-                        </li>
-                      </ul>
-                    </span>
+              <!-- SENT MESSAGE -->
+              <div v-else class="flex sent-message">
+                <div class="flex message">
+                  <div class="text">{{curMessage.message}}</div>
+                  <div class="flex select align-center just-cont-sbtw">
+                    <div class="dropdown">
+                      <button class="dropbtn">
+                        <i class="fa-solid fa-chevron-down chevron"></i>
+                      </button>
+                      <span class="dropdown-content">
+                        <ul>
+                          <li>
+                            <button>Info Messaggio</button>
+                          </li>
+                          <li>
+                            <button>Cancella Messaggio</button>
+                          </li>
+                        </ul>
+                      </span>
+                    </div>
+
+                    <span class="hour">{{curMessage.date}}</span>
                   </div>
-                  <span class="hour">13:53</span>
                 </div>
               </div>
-            </div>
-            <div class="flex received-message">
-              <div class="flex message">
-                <div class="text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
-                  atque excepturi Lorem ipsum, dolor sit amet consectetur
-                  adipisicing elit. Maxime soluta, hic iste nam molestias
-                  aliquid expedita fuga atque excepturi
-                </div>
-                <div class="flex select align-center just-cont-sbtw">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <span class="hour">13:53</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex received-message">
-              <div class="flex message">
-                <div class="text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
-                  atque excepturi
-                </div>
-                <div class="flex select align-center just-cont-sbtw">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <span class="hour">13:53</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex received-message">
-              <div class="flex message">
-                <div class="text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maxime soluta, hic iste nam molestias aliquid expedita fuga
-                  atque excepturi
-                </div>
-                <div class="flex select align-center just-cont-sbtw">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <span class="hour">13:53</span>
-                </div>
-              </div>
-            </div>
-            <div class="flex received-message">
-              <div class="flex message">
-                <div class="text">Va a vre a fiat panda</div>
-                <div class="flex select align-center just-cont-sbtw">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <span class="hour">13:53</span>
-                </div>
-              </div>
+              <!-- /SENT MESSAGE -->
             </div>
           </div>
         </div>
