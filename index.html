@@ -84,204 +84,23 @@
         </div>
 
         <div class="flex contacts-ctn col-dir align-center">
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_1.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>FRATM</span>
-              <span class="last-msg">Va a vre a fiat pand</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
 
-          <div class="flex user just-cont-center">
+          <!-- Contact -->
+          <div class="flex user just-cont-center" v-for="curContact in contacts">
             <div class="profile-pic">
-              <img src="img/avatar_2.jpg" alt="" />
+              <img :src="'img/avatar' + curContact.avatar + '.jpg'" alt="" />
+              <!-- <img :src="curContact.avatar" alt="" /> -->
             </div>
             <div class="contact-info just-cont-center col-dir">
-              <span>Gianni Sono</span>
-              <span class="last-msg">Mi si è rotto il Giannocchio</span>
+              <span>{{curContact.name}}</span>
+              <span class="last-msg">{{ curContact.messages[0].message }}</span>
             </div>
-            <span class="hour">13:50</span>
+            <span class="hour">{{ curContact.messages[0].date }}</span>
           </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_3.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Fabio</span>
-              <span class="last-msg">Sei una fabola</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_4.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Sam Il Pompiere</span>
-              <span class="last-msg">Sei on FIRE</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_5.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Luca Tutor</span>
-              <span class="last-msg"
-                >Ciao Luca, tutto bene? Ti piace Boolzapp?</span
-              >
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_6.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Gerry Scotti</span>
-              <span class="last-msg"
-                >La vuoi la mia pepe, la vuoi la mia pepe, la vuoi la mia
-                peperonata!?</span
-              >
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_7.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Goku</span>
-              <span class="last-msg">R.I.P Akira Toriyama</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_8.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Captain Quirk</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_1.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Fluffy McFlufferson </span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_2.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Elon Musk</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_3.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Jeff Bezos</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_4.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Loris Tutor (psicologo)</span>
-              <span class="last-msg"
-                >Loris grazie di tutti i tuoi discorsi motivazionali !!!</span
-              >
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_5.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Peppa Pig</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_6.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Giorgia Meloni</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_7.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Ciccio Pio Di Santo</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_8.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Harry Styles</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_1.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Vegeta</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_2.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Iron Man</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
-          <div class="flex user just-cont-center">
-            <div class="profile-pic">
-              <img src="img/avatar_3.jpg" alt="" />
-            </div>
-            <div class="contact-info just-cont-center col-dir">
-              <span>Brother</span>
-              <span class="last-msg">Lorem ipsum dolor sit amet</span>
-            </div>
-            <span class="hour">13:50</span>
-          </div>
+          <!-- /Contact -->
+
+
+          
         </div>
       </section>
       <!-- /NAV SECTION -->
