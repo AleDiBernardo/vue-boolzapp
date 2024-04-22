@@ -2,6 +2,7 @@ Vue.createApp({
   data() {
     return {
       activeChatIndex: 0,
+      searchedWord: "",
       newMessage: "",
       contacts: [
         {
@@ -190,5 +191,39 @@ Vue.createApp({
       
       this.newMessage = "";
     },
+    // handleSearch(){
+    //     if (this.searchedWord !== "") {
+    //         this.contacts.forEach(curContact => {
+    //             // console.log(curContact);
+    //             if (curContact.name.includes(this.searchedWord.toLowerCase())) {
+    //                 curContact.visible = true
+
+    //             } else {
+    //                 curContact.visible = false
+    //             }
+    //         });
+    //     } else {
+    //         this.contacts.forEach(curContact => {
+    //             // console.log(curContact);
+    //             curContact.visible = true
+    //         });
+    //     }
+    // }
+    handleSearch() {
+        if (this.searchedWord !== "") {
+          this.contacts.forEach(curContact => {
+            const name = curContact.name.toLowerCase();
+            if (name.includes(this.searchedWord.toLowerCase())) {
+              curContact.visible = true;
+            } else {
+              curContact.visible = false;
+            }
+          });
+        } else {
+          this.contacts.forEach(curContact => {
+            curContact.visible = true;
+          });
+        }
+      }
   },
 }).mount("#app");

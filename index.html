@@ -79,6 +79,8 @@
               id="search"
               placeholder="Cerca o inizia una nuova chat"
               autocomplete="off"
+              v-model="searchedWord"
+              @input="handleSearch"
             />
           </form>
         </div>
@@ -90,6 +92,7 @@
             class="flex user just-cont-center"
             v-for="(curContact,index) in contacts"
             @click.stop="activeChatIndex = index"
+            v-show="curContact.visible"
           >
             <div class="profile-pic">
               <img :src="'img/avatar' + curContact.avatar + '.jpg'" alt="" />
