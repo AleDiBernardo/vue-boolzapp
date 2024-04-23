@@ -21,6 +21,7 @@ Vue.createApp({
           name: "Michele",
           avatar: "_1",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
           messages: [
             {
               date: "15:30",
@@ -43,6 +44,8 @@ Vue.createApp({
           name: "Fabio",
           avatar: "_2",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+
           messages: [
             {
               date: "16:30",
@@ -65,6 +68,8 @@ Vue.createApp({
           name: "Samuele",
           avatar: "_3",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+
           messages: [
             {
               date: "10:10",
@@ -87,6 +92,8 @@ Vue.createApp({
           name: "Alessandro B.",
           avatar: "_4",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+
           messages: [
             {
               date: "15:30",
@@ -104,6 +111,8 @@ Vue.createApp({
           name: "Alessandro L.",
           avatar: "_5",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+
           messages: [
             {
               date: "15:30",
@@ -121,6 +130,8 @@ Vue.createApp({
           name: "Claudia",
           avatar: "_6",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+
           messages: [
             {
               date: "15:30",
@@ -143,6 +154,8 @@ Vue.createApp({
           name: "Federico",
           avatar: "_7",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+
           messages: [
             {
               date: "15:30",
@@ -160,6 +173,8 @@ Vue.createApp({
           name: "Davide",
           avatar: "_8",
           visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+
           messages: [
             {
               date: "15:30",
@@ -181,6 +196,13 @@ Vue.createApp({
       ],
     };
   },
+  created() {
+
+    this.contacts.forEach((curContact)=>{
+      console.log(curContact);
+      curContact.contact_status += curContact.messages[curContact.messages.length -1 ].date;
+    })
+  },  
   methods: {
     sendMessage() {
       console.log("inviato");
@@ -199,6 +221,16 @@ Vue.createApp({
             Math.floor(Math.random() * this.randomAnswers.length - 1) + 1;
           curHour = luxon.DateTime.now().setZone("Europe/Rome");
           formattedHour = curHour.toFormat("HH:mm");
+          this.contacts[this.activeChatIndex].contact_status =
+            "Sta scrivendo...";
+          setTimeout(() => {
+            this.contacts[this.activeChatIndex].contact_status = "Online";
+            setTimeout(() => {
+              this.contacts[
+                this.activeChatIndex
+              ].contact_status = `ultimo accesso oggi alle ${formattedHour}`;
+            }, 4000);
+          }, 2000);
           this.contacts[this.activeChatIndex].messages.push({
             date: formattedHour,
             message: this.randomAnswers[randNum],
