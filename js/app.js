@@ -213,8 +213,7 @@ Vue.createApp({
       }
     },
     removeMessage(index){
-      
-      this.contacts[this.activeChatIndex].messages.splice(index,1)
+      this.contacts[this.activeChatIndex].messages.splice(index,1);
     }
   },
 }).mount("#app");
