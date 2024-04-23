@@ -94,6 +94,7 @@
         <div class="flex contacts-ctn col-dir align-center">
           <!-- Contact -->
           <div
+            v-if="contacts !== null"
             class="flex user just-cont-center"
             v-for="(curContact,index) in contacts"
             @click.stop="activeChatIndex = index"
@@ -105,10 +106,14 @@
             </div>
             <div class="contact-info just-cont-center col-dir">
               <span>{{curContact.name}}</span>
-              <span class="last-msg">{{ curContact.messages[curContact.messages.length - 1].message }}</span>
+              <span v-if="curContact.messages[curContact.messages.length - 1].message" class="last-msg">{{ curContact.messages[curContact.messages.length - 1].message }}</span>
+              <span v-else class="last-msg">&zwnj;</span>
+
             </div>
-            <span class="hour">{{ curContact.messages[curContact.messages.length - 1].date }}</span>
+            <span v-if="curContact.messages[curContact.messages.length - 1].date" class="hour">{{ curContact.messages[curContact.messages.length - 1].date }}</span>
+            <span v-else class="hour invisible">&zwnj;</span>
           </div>
+          
           <!-- /Contact -->
         </div>
         <!-- /CONTACT CONTAINER -->
@@ -116,7 +121,7 @@
       <!-- /NAV SECTION -->
 
       <!-- CHAT SECTION -->
-      <section class="chat-section">
+      <section class="chat-section" @click="isOptionsClicked = false">
         <!-- HEADER CHAT -->
         <header class="flex header align-center just-cont-center">
           <div class="flex container-95">
@@ -143,9 +148,19 @@
                   </button>
                 </li>
                 <li>
-                  <button>
+                  <button @click.stop="isOptionsClicked = !isOptionsClicked" id="optionBtn">
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                   </button>
+                  <span v-show="isOptionsClicked" class="dropdown-content" id="dropOption">
+                    <ul>
+                      <li>
+                        <button @click="clearChat">Elimina messaggi</button>
+                      </li>
+                      <li>
+                        <button @click="deleteChat">Cancella Chat</button>
+                      </li>
+                    </ul>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -159,7 +174,7 @@
             <div v-for="(curMessage,index) in contacts[activeChatIndex].messages ">
               <!-- RECEIVED MESSAGE -->
               <div
-                v-if="curMessage.status === 'received'"
+                v-if="curMessage.status === 'received' && curMessage !== null"
                 class="flex received-message"
               >
                 <div class="flex message">
@@ -173,7 +188,7 @@
               <!-- /RECEIVED MESSAGE -->
 
               <!-- SENT MESSAGE -->
-              <div v-else class="flex sent-message">
+              <div v-else-if="curMessage.status === 'sent' && curMessage !== null" class="flex sent-message">
                 <div class="flex message">
                   <div class="text">{{curMessage.message}}</div>
                   <div class="flex select align-center just-cont-sbtw">

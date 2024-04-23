@@ -196,7 +196,8 @@ main {
 }
 
 .chat-section .chat-info > span:nth-child(2),
-.nav-section .contact-info > span:nth-child(2) {
+.nav-section .contact-info > span:nth-child(2),
+.nav-section .contact-info > span:nth-child(3){
   color: gray;
   font-size: 12px;
 }
@@ -298,9 +299,12 @@ main {
   background-color: white;
   font-size: 12px;
   box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.4);
+  z-index: 9998;
 }
 
-.select .dropdown-content ul li button {
+
+.select .dropdown-content ul li button,
+#dropOption ul li button {
   font-size: 15px;
   text-align: center;
   width: 150px;
@@ -308,7 +312,8 @@ main {
   color: black;
 }
 
-.select .dropdown-content ul li:hover {
+.select .dropdown-content ul li:hover,
+#dropOption ul li:hover {
   background-color: #eaeaea;
 }
 
@@ -323,6 +328,20 @@ main {
 .select .dropdown {
   position: relative;
   display: inline-block;
+}
+
+
+#optionBtn {
+  position: relative;
+}
+#dropOption {
+  top: 100px;
+  right: 200px;
+  position: absolute;
+  background-color: white;
+  font-size: 12px;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
 }
 
 .select .dropdown:hover .dropdown-content {
@@ -416,4 +435,9 @@ main {
   color: var(--notificatio-sec-color);
   font-size: 20px;
   aspect-ratio: 1;
+}
+
+
+.invisible {
+  margin-left: 30px;
 }
