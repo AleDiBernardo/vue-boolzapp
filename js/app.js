@@ -8,6 +8,8 @@ Vue.createApp({
       isOptionsClicked: false,
       isContactEmpty: false,
       isAddChatPressed: false,
+      newContactName: "",
+      newContactImage: "",
       randomAnswers: [
         "dipende",
         "dubbi? domande?",
@@ -288,6 +290,21 @@ Vue.createApp({
         console.log("ciAO");  
       }
     },
-    createChat(){}
+    createChat(){
+      this.contacts.push({
+        name: this.newContactName,
+          avatar: this.newContactImage,
+          visible: true,
+          contact_status: "",
+
+          messages: [
+            {
+              date: "",
+              message: "",
+              status: "",
+            },
+          ],
+      })
+    }
   },
 }).mount("#app");

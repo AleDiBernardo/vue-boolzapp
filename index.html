@@ -139,8 +139,13 @@
       <!-- CHAT SECTION -->
       <section class="chat-section" @click="isOptionsClicked = false">
         <div v-show="isAddChatPressed" id="newChatForm">
-          <h1>ciao</h1>
-          <button @click="isAddChatPressed = false">x</button>
+          <input type="text" placeholder="Nome" aria-label="name" v-model="newContactName">
+          <input type="text" placeholder="Link Immagine" aria-label="immagine" v-model="newContactImage">
+          <div class="newChatBtnCtn">
+            <button @click="isAddChatPressed = false">Annulla</button>
+            <button @click="createChat">Crea Contatto</button>
+          </div>
+
         </div>
         <!-- HEADER CHAT -->
         <header class="flex header align-center just-cont-center">
