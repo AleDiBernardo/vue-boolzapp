@@ -13,6 +13,8 @@
       referrerpolicy="no-referrer"
     />
 
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+
     <title>Boolzapp</title>
 
     <!-- Luxon -->
@@ -219,13 +221,15 @@
                   placeholder="Scrivi un messaggio"
                   autocomplete="off"
                   v-model="newMessage"
+                  @input="newMessage ? isWriting = true : isWriting = false"
                   
                 />
               </form>
             </div>
             <div class="audio just-cont-center align-center">
-              <button>
-                <i class="fa-solid fa-microphone"></i>
+              <button @click="sendMessage">
+                <i v-if="!isWriting" class="fa-solid fa-microphone"></i>
+                <span v-else>Invia</span>
               </button>
             </div>
           </div>

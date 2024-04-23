@@ -4,6 +4,7 @@ Vue.createApp({
       activeChatIndex: 0,
       searchedWord: "",
       newMessage: "",
+      isWriting: false,
       
       contacts: [
         {
@@ -215,6 +216,6 @@ Vue.createApp({
     removeMessage(index){
       this.contacts[this.activeChatIndex].messages.splice(index,1);
       console.log(this.contacts[0].messages);
-    }
+    },
   },
 }).mount("#app");
