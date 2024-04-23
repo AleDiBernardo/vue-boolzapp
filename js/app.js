@@ -7,6 +7,7 @@ Vue.createApp({
       isWriting: false,
       isOptionsClicked: false,
       isContactEmpty: false,
+      isAddChatPressed: false,
       randomAnswers: [
         "dipende",
         "dubbi? domande?",
@@ -128,30 +129,30 @@ Vue.createApp({
         //     },
         //   ],
         // },
-        // {
-        //   name: "Claudia",
-        //   avatar: "_6",
-        //   visible: true,
-        //   contact_status: "Ultimo accesso oggi alle ",
+        {
+          name: "Claudia",
+          avatar: "_6",
+          visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
 
-        //   messages: [
-        //     {
-        //       date: "15:30",
-        //       message: "Ciao Claudia, hai novità?",
-        //       status: "sent",
-        //     },
-        //     {
-        //       date: "15:50",
-        //       message: "Non ancora",
-        //       status: "received",
-        //     },
-        //     {
-        //       date: "15:51",
-        //       message: "Nessuna nuova, buona nuova",
-        //       status: "sent",
-        //     },
-        //   ],
-        // },
+          messages: [
+            {
+              date: "15:30",
+              message: "Ciao Claudia, hai novità?",
+              status: "sent",
+            },
+            {
+              date: "15:50",
+              message: "Non ancora",
+              status: "received",
+            },
+            {
+              date: "15:51",
+              message: "Nessuna nuova, buona nuova",
+              status: "sent",
+            },
+          ],
+        },
         {
           name: "Federico",
           avatar: "_7",

@@ -13,7 +13,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
 
     <title>Boolzapp</title>
 
@@ -57,6 +57,9 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                   </button>
                 </li>
+                <li>
+                  <button @click="isAddChatPressed = true" class="addChatBtn" id="smaller">+</button>
+                </li>
               </ul>
             </div>
           </div>
@@ -89,7 +92,7 @@
             />
           </form>
         </div>
-
+        
         <!-- CONTACT CONTAINER -->
         <div class="flex contacts-ctn col-dir align-center">
           <!-- Contact -->
@@ -106,14 +109,27 @@
             </div>
             <div class="contact-info just-cont-center col-dir">
               <span>{{curContact.name}}</span>
-              <span v-if="curContact.messages[curContact.messages.length - 1].message" class="last-msg">{{ curContact.messages[curContact.messages.length - 1].message }}</span>
+              <span
+                v-if="curContact.messages[curContact.messages.length - 1].message"
+                class="last-msg"
+                >{{ curContact.messages[curContact.messages.length - 1].message
+                }}</span
+              >
               <span v-else class="last-msg">&zwnj;</span>
-
             </div>
-            <span v-if="curContact.messages[curContact.messages.length - 1].date" class="hour">{{ curContact.messages[curContact.messages.length - 1].date }}</span>
+            <span
+              v-if="curContact.messages[curContact.messages.length - 1].date"
+              class="hour"
+              >{{ curContact.messages[curContact.messages.length - 1].date
+              }}</span
+            >
             <span v-else class="hour invisible">&zwnj;</span>
           </div>
-          
+          <div v-show="isContactEmpty" class="startChatCtn">
+            <span id="startChatting">Inizia a chattare</span>
+            <button @click="isAddChatPressed = true" class="addChatBtn">+</button>
+          </div>
+
           <!-- /Contact -->
         </div>
         <!-- /CONTACT CONTAINER -->
@@ -122,6 +138,10 @@
 
       <!-- CHAT SECTION -->
       <section class="chat-section" @click="isOptionsClicked = false">
+        <div v-show="isAddChatPressed" id="newChatForm">
+          <h1>ciao</h1>
+          <button @click="isAddChatPressed = false">x</button>
+        </div>
         <!-- HEADER CHAT -->
         <header class="flex header align-center just-cont-center">
           <div class="flex container-95">
@@ -133,7 +153,9 @@
             </div>
             <div class="flex chat-info just-cont-center col-dir">
               <span>{{contacts[activeChatIndex].name}}</span>
-              <span class="last-access">{{ contacts[activeChatIndex].contact_status }}</span>
+              <span class="last-access"
+                >{{ contacts[activeChatIndex].contact_status }}</span
+              >
             </div>
             <div class="icons just-cont-center align-center">
               <ul class="flex just-cont-center align-center">
@@ -148,10 +170,17 @@
                   </button>
                 </li>
                 <li>
-                  <button @click.stop="isOptionsClicked = !isOptionsClicked" id="optionBtn">
+                  <button
+                    @click.stop="isOptionsClicked = !isOptionsClicked"
+                    id="optionBtn"
+                  >
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                   </button>
-                  <span v-show="isOptionsClicked" class="dropdown-content" id="dropOption">
+                  <span
+                    v-show="isOptionsClicked"
+                    class="dropdown-content"
+                    id="dropOption"
+                  >
                     <ul>
                       <li>
                         <button @click="clearChat">Elimina messaggi</button>
@@ -171,7 +200,9 @@
         <!-- BODY CHAT -->
         <div class="flex body-chat just-cont-center">
           <div class="container">
-            <div v-for="(curMessage,index) in contacts[activeChatIndex].messages ">
+            <div
+              v-for="(curMessage,index) in contacts[activeChatIndex].messages "
+            >
               <!-- RECEIVED MESSAGE -->
               <div
                 v-if="curMessage.status === 'received' && curMessage !== null"
@@ -188,7 +219,10 @@
               <!-- /RECEIVED MESSAGE -->
 
               <!-- SENT MESSAGE -->
-              <div v-else-if="curMessage.status === 'sent' && curMessage !== null" class="flex sent-message">
+              <div
+                v-else-if="curMessage.status === 'sent' && curMessage !== null"
+                class="flex sent-message"
+              >
                 <div class="flex message">
                   <div class="text">{{curMessage.message}}</div>
                   <div class="flex select align-center just-cont-sbtw">
@@ -202,7 +236,9 @@
                             <button>Info Messaggio</button>
                           </li>
                           <li>
-                            <button @click="removeMessage(index)">Cancella Messaggio</button>
+                            <button @click="removeMessage(index)">
+                              Cancella Messaggio
+                            </button>
                           </li>
                         </ul>
                       </span>
@@ -237,7 +273,6 @@
                   autocomplete="off"
                   v-model="newMessage"
                   @input="newMessage ? isWriting = true : isWriting = false"
-                  
                 />
               </form>
             </div>
