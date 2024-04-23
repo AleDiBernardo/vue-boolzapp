@@ -104,9 +104,12 @@
             @click.stop="activeChatIndex = index"
             v-show="curContact.visible"
           >
-            <div class="profile-pic">
-              <img :src="'img/avatar' + curContact.avatar + '.jpg'" alt="" />
-              <!-- <img :src="curContact.avatar" alt="" /> -->
+            <div class="flex profile-pic just-cont-center">
+              
+              <img
+                :src="curContact.avatar"
+                alt=""
+              />
             </div>
             <div class="contact-info just-cont-center col-dir">
               <span>{{curContact.name}}</span>
@@ -154,8 +157,9 @@
         <header class="flex header align-center just-cont-center">
           <div class="flex container-95">
             <div class="flex profile-pic just-cont-center">
+              
               <img
-                :src="'img/avatar' + contacts[activeChatIndex].avatar + '.jpg'"
+                :src="contacts[activeChatIndex].avatar"
                 alt=""
               />
             </div>

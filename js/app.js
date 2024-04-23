@@ -24,118 +24,118 @@ Vue.createApp({
         "Tutto bene!",
       ],
       contacts: [
-        // {
-        //   name: "Michele",
-        //   avatar: "_1",
-        //   visible: true,
-        //   contact_status: "Ultimo accesso oggi alle ",
-        //   messages: [
-        //     {
-        //       date: "15:30",
-        //       message: "Hai portato a spasso il cane?",
-        //       status: "sent",
-        //     },
-        //     {
-        //       date: "15:50",
-        //       message: "Ricordati di stendere i panni",
-        //       status: "sent",
-        //     },
-        //     {
-        //       date: "16:15",
-        //       message: "Tutto fatto!",
-        //       status: "received",
-        //     },
-        //   ],
-        // },
-        // {
-        //   name: "Fabio",
-        //   avatar: "_2",
-        //   visible: true,
-        //   contact_status: "Ultimo accesso oggi alle ",
+        {
+          name: "Michele",
+          avatar: "img/avatar_1.jpg",
+          visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
+          messages: [
+            {
+              date: "15:30",
+              message: "Hai portato a spasso il cane?",
+              status: "sent",
+            },
+            {
+              date: "15:50",
+              message: "Ricordati di stendere i panni",
+              status: "sent",
+            },
+            {
+              date: "16:15",
+              message: "Tutto fatto!",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Fabio",
+          avatar: "img/avatar_2.jpg",
+          visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
 
-        //   messages: [
-        //     {
-        //       date: "16:30",
-        //       message: "Ciao come stai?",
-        //       status: "sent",
-        //     },
-        //     {
-        //       date: "16:30",
-        //       message: "Bene grazie! Stasera ci vediamo?",
-        //       status: "received",
-        //     },
-        //     {
-        //       date: "16:35",
-        //       message: "Mi piacerebbe ma devo andare a fare la spesa.",
-        //       status: "sent",
-        //     },
-        //   ],
-        // },
-        // {
-        //   name: "Samuele",
-        //   avatar: "_3",
-        //   visible: true,
-        //   contact_status: "Ultimo accesso oggi alle ",
+          messages: [
+            {
+              date: "16:30",
+              message: "Ciao come stai?",
+              status: "sent",
+            },
+            {
+              date: "16:30",
+              message: "Bene grazie! Stasera ci vediamo?",
+              status: "received",
+            },
+            {
+              date: "16:35",
+              message: "Mi piacerebbe ma devo andare a fare la spesa.",
+              status: "sent",
+            },
+          ],
+        },
+        {
+          name: "Samuele",
+          avatar: "img/avatar_3.jpg",
+          visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
 
-        //   messages: [
-        //     {
-        //       date: "10:10",
-        //       message: "La Marianna va in campagna",
-        //       status: "received",
-        //     },
-        //     {
-        //       date: "10:20",
-        //       message: "Sicuro di non aver sbagliato chat?",
-        //       status: "sent",
-        //     },
-        //     {
-        //       date: "16:15",
-        //       message: "Ah scusa!",
-        //       status: "received",
-        //     },
-        //   ],
-        // },
-        // {
-        //   name: "Alessandro B.",
-        //   avatar: "_4",
-        //   visible: true,
-        //   contact_status: "Ultimo accesso oggi alle ",
+          messages: [
+            {
+              date: "10:10",
+              message: "La Marianna va in campagna",
+              status: "received",
+            },
+            {
+              date: "10:20",
+              message: "Sicuro di non aver sbagliato chat?",
+              status: "sent",
+            },
+            {
+              date: "16:15",
+              message: "Ah scusa!",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Alessandro B.",
+          avatar: "img/avatar_4.jpg",
+          visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
 
-        //   messages: [
-        //     {
-        //       date: "15:30",
-        //       message: "Lo sai che ha aperto una nuova pizzeria?",
-        //       status: "sent",
-        //     },
-        //     {
-        //       date: "15:50",
-        //       message: "Si, ma preferirei andare al cinema",
-        //       status: "received",
-        //     },
-        //   ],
-        // },
-        // {
-        //   name: "Alessandro L.",
-        //   avatar: "_5",
-        //   visible: true,
-        //   contact_status: "Ultimo accesso oggi alle ",
+          messages: [
+            {
+              date: "15:30",
+              message: "Lo sai che ha aperto una nuova pizzeria?",
+              status: "sent",
+            },
+            {
+              date: "15:50",
+              message: "Si, ma preferirei andare al cinema",
+              status: "received",
+            },
+          ],
+        },
+        {
+          name: "Alessandro L.",
+          avatar: "img/avatar_5.jpg",
+          visible: true,
+          contact_status: "Ultimo accesso oggi alle ",
 
-        //   messages: [
-        //     {
-        //       date: "15:30",
-        //       message: "Ricordati di chiamare la nonna",
-        //       status: "sent",
-        //     },
-        //     {
-        //       date: "15:50",
-        //       message: "Va bene, stasera la sento",
-        //       status: "received",
-        //     },
-        //   ],
-        // },
+          messages: [
+            {
+              date: "15:30",
+              message: "Ricordati di chiamare la nonna",
+              status: "sent",
+            },
+            {
+              date: "15:50",
+              message: "Va bene, stasera la sento",
+              status: "received",
+            },
+          ],
+        },
         {
           name: "Claudia",
-          avatar: "_6",
+          avatar: "img/avatar_6.jpg",
           visible: true,
           contact_status: "Ultimo accesso oggi alle ",
 
@@ -159,7 +159,7 @@ Vue.createApp({
         },
         {
           name: "Federico",
-          avatar: "_7",
+          avatar: "img/avatar_7.jpg",
           visible: true,
           contact_status: "Ultimo accesso oggi alle ",
 
@@ -178,7 +178,7 @@ Vue.createApp({
         },
         {
           name: "Davide",
-          avatar: "_8",
+          avatar: "img/avatar_8.jpg",
           visible: true,
           contact_status: "Ultimo accesso oggi alle ",
 
