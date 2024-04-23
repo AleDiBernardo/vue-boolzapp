@@ -76,7 +76,7 @@
           </div>
         </div>
         <div class="search-bar">
-          <form class="flex align-center just-cont-center" action="">
+          <form class="flex align-center just-cont-center" @submit.prevent action="">
             <button>
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -89,6 +89,7 @@
               autocomplete="off"
               v-model="searchedWord"
               @input="handleSearch"
+              
             />
           </form>
         </div>

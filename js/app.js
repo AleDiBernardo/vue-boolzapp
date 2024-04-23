@@ -271,6 +271,8 @@ Vue.createApp({
       this.contacts[this.activeChatIndex].messages = [{}];
     },
     deleteChat() {
+      //! Bug non permette di eliminare subito l'ultimo contatto, ma solo
+      //! se clicchi successivamente su un altro
       // console.log(this.contacts[this.activeChatIndex]);
       if (this.contacts.length - 1 !== 0) {
         this.contacts.splice(this.activeChatIndex, 1);
