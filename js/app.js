@@ -5,7 +5,17 @@ Vue.createApp({
       searchedWord: "",
       newMessage: "",
       isWriting: false,
-      
+      randomAnswers: [
+        "dipende",
+        "dubbi? domande?",
+        "incredibile",
+        "ok",
+        "Ehi, cosa ne pensi?",
+        "In bocca al lupo!",
+        "Buona giornata!",
+        "Fammi sapere!",
+        "Tutto bene!",
+      ],
       contacts: [
         {
           name: "Michele",
@@ -174,7 +184,7 @@ Vue.createApp({
   methods: {
     sendMessage() {
       console.log("inviato");
-      let curHour = luxon.DateTime.now().setZone("Europe/Rome")
+      let curHour = luxon.DateTime.now().setZone("Europe/Rome");
       let formattedHour = curHour.toFormat("HH:mm");
 
       if (this.newMessage !== "") {
@@ -185,11 +195,13 @@ Vue.createApp({
         });
 
         setTimeout(() => {
-            curHour = luxon.DateTime.now().setZone("Europe/Rome");
-            formattedHour = curHour.toFormat("HH:mm");
+          const randNum =
+            Math.floor(Math.random() * this.randomAnswers.length - 1) + 1;
+          curHour = luxon.DateTime.now().setZone("Europe/Rome");
+          formattedHour = curHour.toFormat("HH:mm");
           this.contacts[this.activeChatIndex].messages.push({
             date: formattedHour,
-            message: "okay brother",
+            message: this.randomAnswers[randNum],
             status: "received",
           });
         }, 1000);
@@ -213,8 +225,8 @@ Vue.createApp({
         });
       }
     },
-    removeMessage(index){
-      this.contacts[this.activeChatIndex].messages.splice(index,1);
+    removeMessage(index) {
+      this.contacts[this.activeChatIndex].messages.splice(index, 1);
       console.log(this.contacts[0].messages);
     },
   },
