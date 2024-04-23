@@ -103,9 +103,9 @@
             </div>
             <div class="contact-info just-cont-center col-dir">
               <span>{{curContact.name}}</span>
-              <span class="last-msg">{{ curContact.messages[0].message }}</span>
+              <span class="last-msg">{{ curContact.messages[curContact.messages.length - 1].message }}</span>
             </div>
-            <span class="hour">{{ curContact.messages[0].date }}</span>
+            <span class="hour">{{ curContact.messages[curContact.messages.length - 1].date }}</span>
           </div>
           <!-- /Contact -->
         </div>

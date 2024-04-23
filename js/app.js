@@ -191,7 +191,7 @@ Vue.createApp({
             message: "okay brother",
             status: "received",
           });
-        }, 60000);
+        }, 1000);
       }
 
       this.newMessage = "";
@@ -214,6 +214,7 @@ Vue.createApp({
     },
     removeMessage(index){
       this.contacts[this.activeChatIndex].messages.splice(index,1);
+      console.log(this.contacts[0].messages);
     }
   },
 }).mount("#app");
