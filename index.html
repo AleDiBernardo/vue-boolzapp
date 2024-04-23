@@ -154,7 +154,7 @@
         <!-- BODY CHAT -->
         <div class="flex body-chat just-cont-center">
           <div class="container">
-            <div v-for="curMessage in contacts[activeChatIndex].messages ">
+            <div v-for="(curMessage,index) in contacts[activeChatIndex].messages ">
               <!-- RECEIVED MESSAGE -->
               <div
                 v-if="curMessage.status === 'received'"
@@ -185,7 +185,7 @@
                             <button>Info Messaggio</button>
                           </li>
                           <li>
-                            <button>Cancella Messaggio</button>
+                            <button @click="removeMessage(curMessage,index)">Cancella Messaggio</button>
                           </li>
                         </ul>
                       </span>
