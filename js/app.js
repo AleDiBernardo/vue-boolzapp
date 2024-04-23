@@ -9,6 +9,8 @@ Vue.createApp({
       isContactEmpty: false,
       isAddChatPressed: false,
       newContactName: "",
+      emptyFormMessage: "Riempi i campi",
+      showFormMessage: false,
       newContactImage: "",
       randomAnswers: [
         "dipende",
@@ -214,13 +216,13 @@ Vue.createApp({
         let curHour = luxon.DateTime.now().setZone("Europe/Rome");
         let formattedHour = curHour.toFormat("HH:mm");
         if (this.newMessage !== "") {
-          this.contacts[this.activeChatIndex].messages.splice(0,1);
+          this.contacts[this.activeChatIndex].messages.splice(0, 1);
           this.contacts[this.activeChatIndex].messages.push({
             date: formattedHour,
             message: this.newMessage.trim(),
             status: "sent",
           });
-  
+
           setTimeout(() => {
             const randNum =
               Math.floor(Math.random() * this.randomAnswers.length - 1) + 1;
@@ -243,10 +245,8 @@ Vue.createApp({
             });
           }, 1000);
         }
-      } 
+      }
       this.newMessage = "";
-      
-
     },
     handleSearch() {
       if (this.searchedWord !== "") {
@@ -268,31 +268,33 @@ Vue.createApp({
       this.contacts[this.activeChatIndex].messages.splice(index, 1);
     },
     clearChat() {
-      this.contacts[this.activeChatIndex].messages = [{}]
+      this.contacts[this.activeChatIndex].messages = [{}];
     },
-    deleteChat(){
-      console.log(this.contacts[this.activeChatIndex]); 
+    deleteChat() {
+      // console.log(this.contacts[this.activeChatIndex]);
       if (this.contacts.length - 1 !== 0) {
-        this.contacts.splice(this.activeChatIndex,1)
-        
+        this.contacts.splice(this.activeChatIndex, 1);
       } else {
         this.contacts = [
           {
             name: "",
-            avatar: '',
+            avatar: "",
             visible: false,
             contact_status: "",
-  
+
             messages: [{}],
           },
-        ]
+        ];
         this.isContactEmpty = true;
-        console.log("ciAO");  
+        console.log("ciAO");
       }
     },
-    createChat(){
-      this.contacts.push({
-        name: this.newContactName,
+    createChat() {
+      
+      if (this.newContactImage !== "" && this.newContactName !== "") {
+        
+        this.contacts.push({
+          name: this.newContactName,
           avatar: this.newContactImage,
           visible: true,
           contact_status: "",
@@ -304,7 +306,17 @@ Vue.createApp({
               status: "",
             },
           ],
-      })
-    }
+        });
+        // this.showFormMessage = false;
+        this.isContactEmpty = false;
+        this.newContactImage = "";
+        this.newContactName = "";
+        this.isAddChatPressed = false
+        
+        this.activeChatIndex = this.contacts.length -1 
+      } else {
+        this.showFormMessage = true;
+      }
+    },
   },
 }).mount("#app");

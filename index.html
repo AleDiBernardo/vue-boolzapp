@@ -145,6 +145,8 @@
             <button @click="isAddChatPressed = false">Annulla</button>
             <button @click="createChat">Crea Contatto</button>
           </div>
+          <span v-show="showFormMessage">{{emptyFormMessage}}</span>
+
 
         </div>
         <!-- HEADER CHAT -->
