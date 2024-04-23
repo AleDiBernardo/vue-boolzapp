@@ -245,7 +245,10 @@ Vue.createApp({
             });
           }, 1000);
         }
+        this.isWriting = false
       }
+      
+
       this.newMessage = "";
     },
     handleSearch() {
@@ -292,9 +295,7 @@ Vue.createApp({
       }
     },
     createChat() {
-      
       if (this.newContactImage !== "" && this.newContactName !== "") {
-        
         this.contacts.push({
           name: this.newContactName,
           avatar: this.newContactImage,
@@ -313,9 +314,9 @@ Vue.createApp({
         this.isContactEmpty = false;
         this.newContactImage = "";
         this.newContactName = "";
-        this.isAddChatPressed = false
-        
-        this.activeChatIndex = this.contacts.length -1 
+        this.isAddChatPressed = false;
+
+        this.activeChatIndex = this.contacts.length - 1;
       } else {
         this.showFormMessage = true;
       }
