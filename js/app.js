@@ -24,53 +24,53 @@ Vue.createApp({
         "Tutto bene!",
       ],
       contacts: [
-        {
-          name: "Michele",
-          avatar: "img/avatar_1.jpg",
-          visible: true,
-          contact_status: "Ultimo accesso oggi alle ",
-          messages: [
-            {
-              date: "15:30",
-              message: "Hai portato a spasso il cane?",
-              status: "sent",
-            },
-            {
-              date: "15:50",
-              message: "Ricordati di stendere i panni",
-              status: "sent",
-            },
-            {
-              date: "16:15",
-              message: "Tutto fatto!",
-              status: "received",
-            },
-          ],
-        },
-        {
-          name: "Fabio",
-          avatar: "img/avatar_2.jpg",
-          visible: true,
-          contact_status: "Ultimo accesso oggi alle ",
+        // {
+        //   name: "Michele",
+        //   avatar: "img/avatar_1.jpg",
+        //   visible: true,
+        //   contact_status: "Ultimo accesso oggi alle ",
+        //   messages: [
+        //     {
+        //       date: "15:30",
+        //       message: "Hai portato a spasso il cane?",
+        //       status: "sent",
+        //     },
+        //     {
+        //       date: "15:50",
+        //       message: "Ricordati di stendere i panni",
+        //       status: "sent",
+        //     },
+        //     {
+        //       date: "16:15",
+        //       message: "Tutto fatto!",
+        //       status: "received",
+        //     },
+        //   ],
+        // },
+        // {
+        //   name: "Fabio",
+        //   avatar: "img/avatar_2.jpg",
+        //   visible: true,
+        //   contact_status: "Ultimo accesso oggi alle ",
 
-          messages: [
-            {
-              date: "16:30",
-              message: "Ciao come stai?",
-              status: "sent",
-            },
-            {
-              date: "16:30",
-              message: "Bene grazie! Stasera ci vediamo?",
-              status: "received",
-            },
-            {
-              date: "16:35",
-              message: "Mi piacerebbe ma devo andare a fare la spesa.",
-              status: "sent",
-            },
-          ],
-        },
+        //   messages: [
+        //     {
+        //       date: "16:30",
+        //       message: "Ciao come stai?",
+        //       status: "sent",
+        //     },
+        //     {
+        //       date: "16:30",
+        //       message: "Bene grazie! Stasera ci vediamo?",
+        //       status: "received",
+        //     },
+        //     {
+        //       date: "16:35",
+        //       message: "Mi piacerebbe ma devo andare a fare la spesa.",
+        //       status: "sent",
+        //     },
+        //   ],
+        // },
         {
           name: "Samuele",
           avatar: "img/avatar_3.jpg",
@@ -114,49 +114,49 @@ Vue.createApp({
             },
           ],
         },
-        {
-          name: "Alessandro L.",
-          avatar: "img/avatar_5.jpg",
-          visible: true,
-          contact_status: "Ultimo accesso oggi alle ",
+        // {
+        //   name: "Alessandro L.",
+        //   avatar: "img/avatar_5.jpg",
+        //   visible: true,
+        //   contact_status: "Ultimo accesso oggi alle ",
 
-          messages: [
-            {
-              date: "15:30",
-              message: "Ricordati di chiamare la nonna",
-              status: "sent",
-            },
-            {
-              date: "15:50",
-              message: "Va bene, stasera la sento",
-              status: "received",
-            },
-          ],
-        },
-        {
-          name: "Claudia",
-          avatar: "img/avatar_6.jpg",
-          visible: true,
-          contact_status: "Ultimo accesso oggi alle ",
+        //   messages: [
+        //     {
+        //       date: "15:30",
+        //       message: "Ricordati di chiamare la nonna",
+        //       status: "sent",
+        //     },
+        //     {
+        //       date: "15:50",
+        //       message: "Va bene, stasera la sento",
+        //       status: "received",
+        //     },
+        //   ],
+        // },
+        // {
+        //   name: "Claudia",
+        //   avatar: "img/avatar_6.jpg",
+        //   visible: true,
+        //   contact_status: "Ultimo accesso oggi alle ",
 
-          messages: [
-            {
-              date: "15:30",
-              message: "Ciao Claudia, hai novità?",
-              status: "sent",
-            },
-            {
-              date: "15:50",
-              message: "Non ancora",
-              status: "received",
-            },
-            {
-              date: "15:51",
-              message: "Nessuna nuova, buona nuova",
-              status: "sent",
-            },
-          ],
-        },
+        //   messages: [
+        //     {
+        //       date: "15:30",
+        //       message: "Ciao Claudia, hai novità?",
+        //       status: "sent",
+        //     },
+        //     {
+        //       date: "15:50",
+        //       message: "Non ancora",
+        //       status: "received",
+        //     },
+        //     {
+        //       date: "15:51",
+        //       message: "Nessuna nuova, buona nuova",
+        //       status: "sent",
+        //     },
+        //   ],
+        // },
         {
           name: "Federico",
           avatar: "img/avatar_7.jpg",
@@ -204,20 +204,16 @@ Vue.createApp({
     };
   },
   created() {
-    this.activeChatIndex = 0;
 
-    // Load data from localStorage
     const storedContacts = localStorage.getItem("contacts");
     if (storedContacts) {
       this.contacts = JSON.parse(storedContacts);
     }
 
-    // Update contact status
     this.updateContactStatus();
 
   },
   watch: {
-    // Save data to localStorage whenever contacts change
     contacts: {
       handler(newContacts) {
         localStorage.setItem("contacts", JSON.stringify(newContacts));
@@ -268,16 +264,12 @@ Vue.createApp({
       this.newMessage = "";
     },
     handleSearch() {
-      if (this.searchedWord !== "") {
-        this.contacts.forEach((curContact) => {
-          const name = curContact.name.toLowerCase();
-          curContact.visible = name.includes(this.searchedWord.toLowerCase());
-        });
-      } else {
-        this.contacts.forEach((curContact) => {
-          curContact.visible = true;
-        });
-      }
+      let shouldShowAllContacts = this.searchedWord === "";
+    
+      this.contacts.forEach((curContact) => {
+        const name = curContact.name.toLowerCase();
+        curContact.visible = shouldShowAllContacts || name.includes(this.searchedWord.toLowerCase());
+      });
     },
     
     removeMessage(index) {
