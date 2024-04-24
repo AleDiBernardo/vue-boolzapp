@@ -347,14 +347,39 @@ Vue.createApp({
         console.log("ciAO");
       }
     },
+    // createChat() {
+    //   if (this.newContactImage !== "" && this.newContactName !== "") {
+    //     this.contacts.push({
+    //       name: this.newContactName,
+    //       avatar: this.newContactImage,
+    //       visible: true,
+    //       contact_status: "",
+
+    //       messages: [
+    //         {
+    //           date: "",
+    //           message: "",
+    //           status: "",
+    //         },
+    //       ],
+    //     });
+    //     this.isContactEmpty = false;
+    //     this.newContactImage = "";
+    //     this.newContactName = "";
+    //     this.isAddChatPressed = false;
+
+    //     this.activeChatIndex = this.contacts.length - 1;
+    //   } else {
+    //     this.showFormMessage = true;
+    //   }
+    // },
     createChat() {
       if (this.newContactImage !== "" && this.newContactName !== "") {
-        this.contacts.push({
+        const newChat = {
           name: this.newContactName,
           avatar: this.newContactImage,
           visible: true,
           contact_status: "",
-
           messages: [
             {
               date: "",
@@ -362,16 +387,18 @@ Vue.createApp({
               status: "",
             },
           ],
-        });
+        };
+    
+        this.contacts.push(newChat);
         this.isContactEmpty = false;
         this.newContactImage = "";
         this.newContactName = "";
         this.isAddChatPressed = false;
-
+    
         this.activeChatIndex = this.contacts.length - 1;
       } else {
         this.showFormMessage = true;
       }
-    },
+    }
   },
 }).mount("#app");
