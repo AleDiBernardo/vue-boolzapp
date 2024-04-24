@@ -211,44 +211,85 @@ Vue.createApp({
     });
   },
   methods: {
+    // sendMessage() {
+    //   if (this.isContactEmpty !== true) {
+    //     let curHour = luxon.DateTime.now().setZone("Europe/Rome");
+    //     let formattedHour = curHour.toFormat("HH:mm");
+    //     if (this.newMessage !== "") {
+    //       this.contacts[this.activeChatIndex].messages.splice(0, 1);
+    //       this.contacts[this.activeChatIndex].messages.push({
+    //         date: formattedHour,
+    //         message: this.newMessage.trim(),
+    //         status: "sent",
+    //       });
+
+    //       setTimeout(() => {
+    //         const randNum =
+    //           Math.floor(Math.random() * this.randomAnswers.length - 1) + 1;
+    //         curHour = luxon.DateTime.now().setZone("Europe/Rome");
+    //         formattedHour = curHour.toFormat("HH:mm");
+    //         this.contacts[this.activeChatIndex].contact_status =
+    //           "Sta scrivendo...";
+    //         setTimeout(() => {
+    //           this.contacts[this.activeChatIndex].contact_status = "Online";
+    //           setTimeout(() => {
+    //             this.contacts[
+    //               this.activeChatIndex
+    //             ].contact_status = `Ultimo accesso oggi alle ${formattedHour}`;
+    //           }, 4000);
+    //         }, 2000);
+    //         this.contacts[this.activeChatIndex].messages.push({
+    //           date: formattedHour,
+    //           message: this.randomAnswers[randNum],
+    //           status: "received",
+    //         });
+    //       }, 1000);
+    //     }
+    //     this.isWriting = false
+    //   }
+      
+
+    //   this.newMessage = "";
+    // },
     sendMessage() {
-      if (this.isContactEmpty !== true) {
-        let curHour = luxon.DateTime.now().setZone("Europe/Rome");
-        let formattedHour = curHour.toFormat("HH:mm");
-        if (this.newMessage !== "") {
-          this.contacts[this.activeChatIndex].messages.splice(0, 1);
+      if (!this.isContactEmpty) {
+        const curHour = luxon.DateTime.now().setZone("Europe/Rome");
+        const formattedHour = curHour.toFormat("HH:mm");
+    
+        if (this.newMessage.trim() !== "") {
+          this.contacts[this.activeChatIndex].messages.shift();
           this.contacts[this.activeChatIndex].messages.push({
             date: formattedHour,
             message: this.newMessage.trim(),
             status: "sent",
           });
-
+    
           setTimeout(() => {
-            const randNum =
-              Math.floor(Math.random() * this.randomAnswers.length - 1) + 1;
-            curHour = luxon.DateTime.now().setZone("Europe/Rome");
-            formattedHour = curHour.toFormat("HH:mm");
-            this.contacts[this.activeChatIndex].contact_status =
-              "Sta scrivendo...";
+            const randNum = Math.floor(Math.random() * this.randomAnswers.length);
+            this.contacts[this.activeChatIndex].contact_status = "Sta scrivendo...";
+            
+            setTimeout(()=> {
+              this.contacts[this.activeChatIndex].messages.push({
+                date: formattedHour,
+                message: this.randomAnswers[randNum],
+                status: "received",
+              });
+              
+            }, 1500)
             setTimeout(() => {
               this.contacts[this.activeChatIndex].contact_status = "Online";
+              
               setTimeout(() => {
-                this.contacts[
-                  this.activeChatIndex
-                ].contact_status = `Ultimo accesso oggi alle ${formattedHour}`;
+                this.contacts[this.activeChatIndex].contact_status = `Ultimo accesso oggi alle ${formattedHour}`;
               }, 4000);
             }, 2000);
-            this.contacts[this.activeChatIndex].messages.push({
-              date: formattedHour,
-              message: this.randomAnswers[randNum],
-              status: "received",
-            });
+            
           }, 1000);
         }
-        this.isWriting = false
+    
+        this.isWriting = false;
       }
-      
-
+    
       this.newMessage = "";
     },
     handleSearch() {
@@ -276,7 +317,6 @@ Vue.createApp({
     deleteChat() {
       //! Bug non permette di eliminare subito l'ultimo contatto, ma solo
       //! se clicchi successivamente su un altro
-      // console.log(this.contacts[this.activeChatIndex]);
       if (this.contacts.length - 1 !== 0) {
         this.contacts.splice(this.activeChatIndex, 1);
       } else {
@@ -310,7 +350,6 @@ Vue.createApp({
             },
           ],
         });
-        // this.showFormMessage = false;
         this.isContactEmpty = false;
         this.newContactImage = "";
         this.newContactName = "";
