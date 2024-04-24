@@ -208,8 +208,13 @@ Vue.createApp({
     const storedContacts = localStorage.getItem("contacts");
     if (storedContacts) {
       this.contacts = JSON.parse(storedContacts);
-      if (this.contacts[0].name === "" && this.contacts.length > 1) {
+      if (this.contacts[0].name === "") {
+        this.isContactEmpty = true
+        console.log("controllato");
+      } else if (this.contacts[0].name === "" && this.contacts.length > 1) {
         this.contacts.shift()
+        console.log("rimosso elemento vuoto");
+
       }
     }
 
@@ -282,14 +287,17 @@ Vue.createApp({
       this.contacts[this.activeChatIndex].messages = [{}];
     },
     deleteChat() {
+      
       if (this.contacts.length > 1 && this.contacts.length -1 === this.activeChatIndex) {
         this.contacts.splice(this.activeChatIndex,1);
         this.activeChatIndex--;
         console.log("if");
+        this.isContactEmpty = true
         
       } else if(this.contacts.length > 1){
         console.log("else if");
         this.contacts.splice(this.activeChatIndex, 1);
+
       } else {
         console.log("else");
         this.contacts = [
