@@ -287,12 +287,15 @@ Vue.createApp({
       this.contacts[this.activeChatIndex].messages = [{}];
     },
     deleteChat() {
+     
       
       if (this.contacts.length > 1 && this.contacts.length -1 === this.activeChatIndex) {
+        console.log(this.activeChatIndex);
+        console.log(this.contacts.length - 1);
         this.contacts.splice(this.activeChatIndex,1);
         this.activeChatIndex--;
         console.log("if");
-        this.isContactEmpty = true
+        this.chechIfFirstChatIsEmpty()
         
       } else if(this.contacts.length > 1){
         console.log("else if");
@@ -314,6 +317,7 @@ Vue.createApp({
       }
     },
     createChat() {
+      
       if (this.newContactImage !== "" && this.newContactName !== "") {
         const newChat = {
           name: this.newContactName,
@@ -328,6 +332,9 @@ Vue.createApp({
             },
           ],
         };
+
+        this.chechIfFirstChatIsEmpty()
+        
     
         this.contacts.push(newChat);
         this.isContactEmpty = false;
@@ -344,6 +351,11 @@ Vue.createApp({
       this.contacts.forEach((curContact) => {
         curContact.contact_status = curContact.messages[curContact.messages.length - 1].date;
       });
+    },
+    chechIfFirstChatIsEmpty(){
+      if (this.contacts[0].name === "") {
+        this.contacts.shift()
+      }
     }
   },
 }).mount("#app");
