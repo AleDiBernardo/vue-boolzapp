@@ -292,15 +292,27 @@ Vue.createApp({
     
       this.newMessage = "";
     },
+    // handleSearch() {
+    //   if (this.searchedWord !== "") {
+    //     this.contacts.forEach((curContact) => {
+    //       const name = curContact.name.toLowerCase();
+    //       if (name.includes(this.searchedWord.toLowerCase())) {
+    //         curContact.visible = true;
+    //       } else {
+    //         curContact.visible = false;
+    //       }
+    //     });
+    //   } else {
+    //     this.contacts.forEach((curContact) => {
+    //       curContact.visible = true;
+    //     });
+    //   }
+    // },
     handleSearch() {
       if (this.searchedWord !== "") {
         this.contacts.forEach((curContact) => {
           const name = curContact.name.toLowerCase();
-          if (name.includes(this.searchedWord.toLowerCase())) {
-            curContact.visible = true;
-          } else {
-            curContact.visible = false;
-          }
+          curContact.visible = name.includes(this.searchedWord.toLowerCase());
         });
       } else {
         this.contacts.forEach((curContact) => {
@@ -308,6 +320,7 @@ Vue.createApp({
         });
       }
     },
+    
     removeMessage(index) {
       this.contacts[this.activeChatIndex].messages.splice(index, 1);
     },
