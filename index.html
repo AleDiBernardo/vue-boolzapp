@@ -57,8 +57,8 @@
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                   </button>
                 </li>
-                <li>
-                  <button @click="isAddChatPressed = true" class="addChatBtn" id="smaller">+</button>
+                <li @click="isAddChatPressed = true">
+                  <button  class="addChatBtn" id="smaller">+</button>
                 </li>
               </ul>
             </div>
@@ -181,9 +181,9 @@
                     <i class="fa-solid fa-paperclip"></i>
                   </button>
                 </li>
-                <li>
+                <li @click.stop="isOptionsClicked = !isOptionsClicked">
                   <button
-                    @click.stop="isOptionsClicked = !isOptionsClicked"
+                    
                     id="optionBtn"
                   >
                     <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -194,11 +194,11 @@
                     id="dropOption"
                   >
                     <ul>
-                      <li>
-                        <button @click="clearChat">Elimina messaggi</button>
+                      <li @click="clearChat">
+                        <button >Elimina messaggi</button>
                       </li>
-                      <li>
-                        <button @click="deleteChat">Cancella Chat</button>
+                      <li @click="deleteChat">
+                        <button >Cancella Chat</button>
                       </li>
                     </ul>
                   </span>
@@ -247,8 +247,8 @@
                           <li>
                             <button>Info Messaggio</button>
                           </li>
-                          <li>
-                            <button @click="removeMessage(index)">
+                          <li @click="removeMessage(index)">
+                            <button >
                               Cancella Messaggio
                             </button>
                           </li>
