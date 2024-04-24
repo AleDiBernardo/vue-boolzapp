@@ -208,6 +208,9 @@ Vue.createApp({
     const storedContacts = localStorage.getItem("contacts");
     if (storedContacts) {
       this.contacts = JSON.parse(storedContacts);
+      if (this.contacts[0].name === "" && this.contacts.length > 1) {
+        this.contacts.shift()
+      }
     }
 
     this.updateContactStatus();
