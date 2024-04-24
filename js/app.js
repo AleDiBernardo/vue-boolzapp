@@ -204,11 +204,27 @@ Vue.createApp({
     };
   },
   created() {
-    this.contacts.forEach((curContact) => {
-      // console.log(curContact);
-      curContact.contact_status +=
-        curContact.messages[curContact.messages.length - 1].date;
-    });
+    this.activeChatIndex = 0;
+
+    // Load data from localStorage
+    const storedContacts = localStorage.getItem("contacts");
+    if (storedContacts) {
+      this.contacts = JSON.parse(storedContacts);
+    }
+
+    // Update contact status
+    this.updateContactStatus();
+
+  },
+  watch: {
+    // Save data to localStorage whenever contacts change
+    contacts: {
+      handler(newContacts) {
+        localStorage.setItem("contacts", JSON.stringify(newContacts));
+      },
+      //permette a vue di osservare i cambiamenti all'interno degli oggetti nidificati
+      deep: true,
+    },
   },
   methods: {
     sendMessage() {
@@ -217,7 +233,6 @@ Vue.createApp({
         const formattedHour = curHour.toFormat("HH:mm");
     
         if (this.newMessage.trim() !== "") {
-          this.contacts[this.activeChatIndex].messages.shift();
           this.contacts[this.activeChatIndex].messages.push({
             date: formattedHour,
             message: this.newMessage.trim(),
@@ -274,6 +289,10 @@ Vue.createApp({
     deleteChat() {
       //! Bug non permette di eliminare subito l'ultimo contatto, ma solo
       //! se clicchi successivamente su un altro
+
+      //! A bug prevents immediate deletion of the last contact
+      //!it only works if you subsequently click on another one.
+      
       if (this.contacts.length > 1) {
         this.contacts.splice(this.activeChatIndex, 1);
       } else {
@@ -316,6 +335,11 @@ Vue.createApp({
       } else {
         this.showFormMessage = true;
       }
+    },
+    updateContactStatus() {
+      this.contacts.forEach((curContact) => {
+        curContact.contact_status = curContact.messages[curContact.messages.length - 1].date;
+      });
     }
   },
 }).mount("#app");
