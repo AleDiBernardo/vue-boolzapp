@@ -17,11 +17,7 @@ Vue.createApp({
         "dubbi? domande?",
         "incredibile",
         "ok",
-        "Ehi, cosa ne pensi?",
-        "In bocca al lupo!",
-        "Buona giornata!",
-        "Fammi sapere!",
-        "Tutto bene!",
+        "Ehi, cosa ne pensi?"
       ],
       contacts: [
         // {
